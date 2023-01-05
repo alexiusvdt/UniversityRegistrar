@@ -2,20 +2,31 @@
   Layout = "_Layout";
 }
 
+@using Registrar.Models
 @model Registrar.Models.Student
-
-<h2>Add a course</h2>
 
 <h4>Add a course to this student: @Html.DisplayFor(model => model.Name)</h4>
 
+<ul>
+  @foreach (CourseStudent join in Model.JoinEntities)
+  {
+      <li><strong>@join.Course.Number</strong> / @join.Course.Name</li>
+    @using (Html.BeginForm("DeleteJoin", "Courses"))
+    {
+      @Html.Hidden("joinId", @join.CourseStudentId)
+      <input type="submit" value="Delete" />
+    }
+  }
+</ul>
+
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.StudentId)
+  @Html.HiddenFor(model => model.StudentId)
 
-    @Html.Label("Select course")
-    @Html.DropDownList("CourseId")
+  @Html.Label("Select course")
+  @Html.DropDownList("CourseId")
 
-    <input type="submit" value="Save" />
+  <input type="submit" value="Save" />
 }
-
+<br>
 <p>@Html.ActionLink("Back to list", "Index")</p>

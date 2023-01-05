@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Registrar.Models
+@model Registrar.Models.Course
+
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This tag does not belong to any items</p>
+}
+else
+{
+  <h4>Students</h4>
+  <ul>
+  @foreach(CourseStudent join in Model.JoinEntities)
+  {
+    <li>@join.Student.Name</li>
+    @using (Html.BeginForm("DeleteJoin", "Tags"))
+    {
+      @Html.Hidden("joinId", @join.CourseStudentId)
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+}

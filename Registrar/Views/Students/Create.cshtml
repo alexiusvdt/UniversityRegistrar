@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Registrar.Models.Student
+
+<h4>Add a new student</h4>
+
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.Admission)
+  @Html.TextBoxFor(model => model.Admission, new {@type = "date"})
+
+  @* @Html.Label("Select course")
+  @Html.CheckBoxFor("CourseId") *@
+
+  <input type="submit" value="Add new student" class="btn" />
+}
+<p>@Html.ActionLink("Show all students", "Index")</p>

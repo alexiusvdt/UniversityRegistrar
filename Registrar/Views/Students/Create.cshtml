@@ -3,7 +3,7 @@
 }
 
 @model Registrar.Models.Student
-
+<div class="flex-column">
 <p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
@@ -19,4 +19,6 @@
 
   <input type="submit" value="Add new student" />
 }
+
 <p>@Html.ActionLink("Show all students", "Index")</p>
+</div>

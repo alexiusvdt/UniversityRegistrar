@@ -4,8 +4,8 @@
 
 @using Registrar.Models;
 
-<div class="container">
-  <div class="courses">
+<div class="container h-100">
+  <div class="courses h-75">
     <h4>Popular Courses</h4>
     @if (Model["courses"].Length == 0)
     { 
@@ -18,7 +18,7 @@
     }
   </div>
   
-  <div class="students">
+  <div class="students h-75">
     <h4>Enrolled Students</h4>
     @if (Model["students"].Length == 0)
     {

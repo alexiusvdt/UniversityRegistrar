@@ -18,8 +18,10 @@
             @await Html.PartialAsync("Sidebar")
           </div>
           <div class="col-9">
-            <h2>@ViewBag.PageTitle</h2>
-            @RenderBody()
+            <h2 class="text-center">@ViewBag.PageTitle</h2>
+            <div class="d-flex justify-content-center">
+              @RenderBody()
+            </div>
           </div>
       </div>
     </div>

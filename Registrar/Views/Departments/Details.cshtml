@@ -10,7 +10,7 @@
 <h4>@Html.DisplayNameFor(model => model.Courses): @Html.DisplayFor(model => model.Courses)</h4>
 <br>
 
-@if(@Model.Courses == 0)
+@if(@Model.Courses == null)
 {
   <p>This Department does not have any courses yet!</p>
 }
@@ -18,9 +18,14 @@ else
 {
   <h5>This Department has following courses:</h5>
   <ul>
-    @foreach(Course course in Model)
+    @foreach(Course course in Model.Courses)
     {
-
+      @Html.DisplayFor(model => model.Name)
+      @:&nbsp;
+      @Html.DisplayFor(model => model.Courses)
+      @:&nbsp;
+      
     }
-}
   </ul>
+}
+  

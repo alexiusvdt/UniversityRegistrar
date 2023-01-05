@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Registrar.Migrations
 {
-    public partial class AddDepartment : Migration
+    public partial class AddDepartments : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,11 +13,11 @@ namespace Registrar.Migrations
                 name: "DepartmentId",
                 table: "Courses",
                 type: "int",
-                nullable: true,
+                nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.CreateTable(
-                name: "Department",
+                name: "Departments",
                 columns: table => new
                 {
                     DepartmentId = table.Column<int>(type: "int", nullable: false)
@@ -27,7 +27,7 @@ namespace Registrar.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Department", x => x.DepartmentId);
+                    table.PrimaryKey("PK_Departments", x => x.DepartmentId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -37,10 +37,10 @@ namespace Registrar.Migrations
                 column: "DepartmentId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Courses_Department_DepartmentId",
+                name: "FK_Courses_Departments_DepartmentId",
                 table: "Courses",
                 column: "DepartmentId",
-                principalTable: "Department",
+                principalTable: "Departments",
                 principalColumn: "DepartmentId",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -48,11 +48,11 @@ namespace Registrar.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Courses_Department_DepartmentId",
+                name: "FK_Courses_Departments_DepartmentId",
                 table: "Courses");
 
             migrationBuilder.DropTable(
-                name: "Department");
+                name: "Departments");
 
             migrationBuilder.DropIndex(
                 name: "IX_Courses_DepartmentId",

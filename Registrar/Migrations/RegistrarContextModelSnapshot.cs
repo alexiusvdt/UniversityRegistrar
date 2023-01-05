@@ -72,7 +72,7 @@ namespace Registrar.Migrations
 
                     b.HasKey("DepartmentId");
 
-                    b.ToTable("Department");
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Registrar.Models.Student", b =>

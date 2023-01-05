@@ -10,8 +10,8 @@ using Registrar.Models;
 namespace Registrar.Migrations
 {
     [DbContext(typeof(RegistrarContext))]
-    [Migration("20230105230013_AddDepartment")]
-    partial class AddDepartment
+    [Migration("20230105234552_AddDepartments")]
+    partial class AddDepartments
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -74,7 +74,7 @@ namespace Registrar.Migrations
 
                     b.HasKey("DepartmentId");
 
-                    b.ToTable("Department");
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Registrar.Models.Student", b =>

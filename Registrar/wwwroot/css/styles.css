@@ -1,0 +1,29 @@
+.courses {
+  display: block;
+  border: none;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  width: 47%;
+  float: left;
+  text-align: justify;
+  background-color: #fff;
+  padding: 2rem;
+  margin: .5rem;
+}
+
+.students {
+  display: block;
+  border: none;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  width: 47%;
+  float: right;
+  text-align: justify;
+  background-color: #fff;
+  padding: 2rem;
+  margin: .51rem;
+}
+
+body {
+  background-color: antiquewhite;
+}

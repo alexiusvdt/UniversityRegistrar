@@ -2,6 +2,32 @@
   Layout = "_Layout";
 }
 
-<h1>Welcome to the Registrar!</h1>
-@* <p>@Html.ActionLink("See all items", "Index", "Items")</p> <p>@Html.ActionLink("See all categories", "Index", "Categories")</p>
-<p>@Html.ActionLink("See all tags", "Index", "Tags")</p> *@
+@using Registrar.Models;
+
+<div class="container">
+  <div class="courses">
+    <h4>Popular Courses</h4>
+    @if (Model["courses"].Length == 0)
+    { 
+      <p>No courses have been added.</p>
+    }
+
+    @foreach (Course course in Model["courses"])
+    {
+      @Html.ActionLink($"{@course.Number} / {@course.Name}", "Details", "Courses", new { id = @course.CourseId})<br>
+    }
+  </div>
+  
+  <div class="students">
+    <h4>Enrolled Students</h4>
+    @if (Model["students"].Length == 0)
+    {
+          <p>No students have been added.</p>
+    }
+
+    @foreach (Student student in Model["students"])
+    {
+      @Html.ActionLink(@student.Name, "Details", "Students", new { id = @student.StudentId})<br>
+    }
+  </div>
+</div>

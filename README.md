@@ -8,10 +8,8 @@ An application to track students and courses for a fictional university.
 
 * C#
 * .Net 6
-* ASP.Net Core 6 MVC
-* EF Core 6
+* ASP.Net EF Core 6
 * SQL
-* MySQL Workbench
 * LINQ
 
 ### Objectives 
@@ -20,21 +18,20 @@ The goal for this project was to create a fully functional CRUD MVC web applicat
 
 ## Setup/Installation Requirements
 
-#### Get copy of MySQL database
+#### To run this project, you will need:
+* .NET 6.0
+[https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download)
+
+* .NET Core CLI
+```
+dotnet tool install --global dotnet-ef --version 6.0.0
+```
+
 1. Clone this repo to your workspace.
-2. Open MySQLWorkbench, log in, and connect to your local server
-3. Under the Administration tab, select Data Import/Restore
-  * Select `Import from Self Contained File`
-  * Select **../university_registrar.sql** from the top level of the directory, `UniversityRegistrar`.
-  * Select "New..." and set new schema name to **university_registrar**
-  * Select 'Start Import'
-4. You should now have a copy of the project database on your machine.
 
-#### Open project
+2. Navigate to the `Registrar` directory.
 
-1. Navigate to the `Registrar` directory.
-
-2. Create a file named `appsettings.json` with the following code. Be sure to update the Default Connection to your MySQL credentials.
+3. Create a file named `appsettings.json` with the following code. Be sure to update the Default Connection to your MySQL credentials.
 ```
 {
   "ConnectionStrings": {
@@ -43,17 +40,18 @@ The goal for this project was to create a fully functional CRUD MVC web applicat
 }
 ```
 
-3. Install dependencies within the `Registrar` directory
+4. Install dependencies within the `Registrar` directory
 ```
 $ dotnet restore
 ````
 
-4. Build and run the program 
+5. Build and run the program 
  ```
  $ dotnet run
  ```
 
-5. Enjoy!
+6. Enjoy!
+
 
 ## Known Bugs
 

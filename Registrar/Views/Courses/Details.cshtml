@@ -5,11 +5,12 @@
 @using Registrar.Models
 @model Registrar.Models.Course
 
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+<hr>
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This tag does not belong to any items</p>
+  <p>This course does not have any students!</p>
 }
 else
 {
@@ -17,7 +18,7 @@ else
   <ul>
   @foreach(CourseStudent join in Model.JoinEntities)
   {
-    <li>@join.Student.Name</li>
+    <li><strong>@join.Student.Name</strong> / Admission Date: @join.Student.Admission</li>
     @using (Html.BeginForm("DeleteJoin", "Tags"))
     {
       @Html.Hidden("joinId", @join.CourseStudentId)
@@ -26,3 +27,7 @@ else
   }
   </ul>
 }
+
+<p>@Html.ActionLink("Back to course list", "Index")</p>
+<p>@Html.ActionLink("Edit course", "Edit", new { id = Model.CourseId })</p>
+<p>@Html.ActionLink("Delete course", "Delete", new { id = Model.CourseId })</p>

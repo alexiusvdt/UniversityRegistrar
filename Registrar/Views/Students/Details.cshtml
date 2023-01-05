@@ -5,21 +5,22 @@
 @using Registrar.Models
 @model Registrar.Models.Student
 
-<h2>Student Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>  
+<hr>
+<h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
+<h4>@Html.DisplayNameFor(model => model.Admission): @Html.DisplayFor(model => model.Admission)</h4>
+<br>
 
 @if(@Model.JoinEntities.Count == 0)
 {
-  <p>This student does not have any courses yet!</p>
+  <p>This student is not enrolled in any courses yet!</p>
 }
 else
 {
-  <h4>This student has the following courses:</h4>
+  <h5>This student is in the following courses:</h5>
   <ul>
     @foreach(CourseStudent join in Model.JoinEntities)
     {
-      <li>Course: @join.Course.Name</li>
+      <li><strong>@join.Course.Number</strong> / @join.Course.Name</li>
       @using (Html.BeginForm("DeleteJoin", "Items"))
       {
         @Html.Hidden("joinId", @join.CourseStudentId)
@@ -29,7 +30,7 @@ else
   </ul>
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Student or Course", "Edit", new { id = Model.StudentId })</p>
+<p>@Html.ActionLink("Back to students", "Index")</p>
+<p>@Html.ActionLink("Edit student profile", "Edit", new { id = Model.StudentId })</p>
 <p>@Html.ActionLink("Add a Course", "AddCourse", new { id = Model.StudentId })</p>
 <p>@Html.ActionLink("Delete Student", "Delete", new { id = Model.StudentId })</p>

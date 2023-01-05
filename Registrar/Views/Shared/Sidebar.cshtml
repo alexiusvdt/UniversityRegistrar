@@ -1,7 +1,16 @@
+@using Registrar.Models;
+
 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
   <a class="nav-link active" data-toggle="pill" role="tab" href="/">Home</a>
   <a class="nav-link active" data-toggle="pill" role="tab" href="/students">Students</a>
   <a class="nav-link active" data-toggle="pill" role="tab" href="/courses">Courses</a>
   <a class="nav-link active" data-toggle="pill" role="tab" href="/students/create">New Student</a>
   <a class="nav-link active" data-toggle="pill" role="tab" href="/courses/create">New Course</a>
+
+  
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+{
+  @Html.TextBox("query", "", new { @class = "form-control" })
+  <input type="submit" value="Search">
+}
 </div>

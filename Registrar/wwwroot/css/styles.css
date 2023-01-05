@@ -10,7 +10,7 @@
   text-align: justify;
   background-color: #fff;
   padding: 2rem;
-  margin: .5rem;
+  margin: .51rem;
 }
 
 .students {
@@ -23,6 +23,7 @@
   text-align: justify;
   background-color: #fff;
   padding: 2rem;
+  padding-bottom: 3.4rem;
   margin: .51rem;
 }
 
@@ -60,4 +61,17 @@ a {
 a:hover {
   box-shadow: inset 300px 0 0 0 #54b3d6;
   color: rgb(255, 255, 255);
+}
+
+input {
+  margin: 10px;
+}
+
+input#query {
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.navbar fixed-bottom{
+  text-align: center;
 }

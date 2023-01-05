@@ -25,5 +25,11 @@ namespace Registrar.Controllers
         ViewBag.PageTitle = "Welcome to the University of ToDoList Registrar";
         return View(model);
       }
+
+      public ActionResult Search(string query)
+      {
+        List<Student> studentResults = _db.Students.Where(student => student.Name.Contains(query)).ToList();
+        return View(studentResults);
+      }
     }
 }

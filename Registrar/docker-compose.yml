@@ -1,0 +1,27 @@
+services:
+  # params for the app service, similar to the commandline entry used to spin this up
+  app:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+     - 5001:5001
+    working_dir: /Registrar
+    volumes:
+      - ./:/Registrar    
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Harmony
+      MYSQL_DB: UniversityRegistrar      
+
+  # mysql service params
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - UniversityRegistrar:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: Harmony      
+
+volumes:
+  UniversityRegistrar:  

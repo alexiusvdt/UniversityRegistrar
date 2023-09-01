@@ -24,9 +24,23 @@ namespace Registrar
 
       WebApplication app = builder.Build();
 
+      // builder.Services.AddSpaStaticFiles(configuration =>
+      // {
+      //     configuration.RootPath = "ClientApp/build";
+      // });
+
       // app.UseDeveloperExceptionPage();
       app.UseHttpsRedirection();
       app.UseStaticFiles();
+      app.UseSpaStaticFiles();
+      app.UseSpa(spa =>
+      {
+          spa.Options.SourcePath = "ClientApp";
+          if (env.IsDevelopment())
+          {
+              spa.UseReactDevelopmentServer(npmScript: "start");
+          }
+      });
 
       app.UseRouting();
 

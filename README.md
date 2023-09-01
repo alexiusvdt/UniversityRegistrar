@@ -1,6 +1,7 @@
 # UNIVERSITY REGISTRAR
 
-#### By Aitana Shough, Anton Ch, Alex Johnson, Daniel Yakovlev
+#### By Alex Johnson
+Based on code developed in collaboration with: Aitana Shough, Anton Ch, and Daniel Yakovlev
 
 An application to track students and courses for a fictional university.
 
@@ -14,7 +15,9 @@ An application to track students and courses for a fictional university.
 
 ### Objectives 
 
-The goal for this project was to create a fully functional CRUD MVC web application that utilizes a many-to-many MySQL database. EF Core was used for communication with the database.
+The initial goal for this project was to create a fully functional CRUD MVC web application that utilizes a many-to-many MySQL database. EF Core was used for communication with the database.
+
+Now, I am splitting the project into a dotnet backend with a react SPA front
 
 ## Setup/Installation Requirements
 
@@ -54,8 +57,9 @@ $ dotnet restore
 
 
 ## Known Bugs
-
-* No known bugs.
+09/01/23
+* adding a course throws a 'foreign key constraint' error: *MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in ResultSet.cs, line 44*
+error occurs on trying to save new dbObject, other create routes seem fine
 
 
 ## License
